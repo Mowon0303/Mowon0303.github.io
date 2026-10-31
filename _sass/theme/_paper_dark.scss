@@ -1,0 +1,47 @@
+/* ==========================================================================
+    PAPER THEME - DARK VERSION
+    ========================================================================== */
+
+/* Color codes used for the theme */
+$primary-color              : #84cdbd;
+$gray                       : #7a8288;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : mix(#fff, $gray, 50%);
+
+/* Color codes used for the site */
+$danger-color               : #ee5f5b;
+$info-color                 : #84cdbd;
+$notice-color               : #7a8288;
+$success-color              : #62c462;
+$warning-color              : #f89406;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Paper dark theme for the site */
+html[data-theme="dark"] {
+    --global-base-color                 : #{$primary-color};
+    --global-bg-color                   : #1b1c1b;
+    --global-footer-bg-color            : #1b1c1b;
+    --global-border-color               : #2f312f;
+    --global-dark-border-color          : #3e403e;
+    --global-code-background-color      : #242625;
+    --global-code-text-color            : #e6e3dc;
+    --global-fig-caption-color          : #a3a29b;
+    --global-link-color                 : #84cdbd;
+    --global-link-color-hover           : #a9e0d3;
+    --global-link-color-visited         : #84cdbd;
+    --global-masthead-link-color        : #cfccc5;
+    --global-masthead-link-color-hover  : #84cdbd;
+    --global-text-color                 : #e6e3dc;
+    --global-text-color-light           : #a3a29b;
+    --global-thead-color                : #242625;
+}

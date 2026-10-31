@@ -1,0 +1,47 @@
+/* ==========================================================================
+    PAPER THEME - LIGHT VERSION
+    ========================================================================== */
+/* Color codes used for the theme */
+$primary-color              : #1f6f63;
+$gray                       : #7a8288;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : mix(#fff, $gray, 50%);
+$lighter-gray               : mix(#fff, $gray, 90%);
+
+/* Color codes used for the site */
+$danger-color               : #ee5f5b;
+$info-color                 : #1f6f63;
+$notice-color               : #7a8288;
+$success-color              : #62c462;
+$warning-color              : #f89406;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Paper light theme for the site */
+:root {
+    --global-base-color                 : #{$primary-color};
+    --global-bg-color                   : #fbfaf7;
+    --global-footer-bg-color            : #fbfaf7;
+    --global-border-color               : #e7e3da;
+    --global-dark-border-color          : #d6d1c6;
+    --global-code-background-color      : #f2efe8;
+    --global-code-text-color            : #3a3e42;
+    --global-fig-caption-color          : #5f6569;
+    --global-link-color                 : #1f6f63;
+    --global-link-color-hover           : #14524a;
+    --global-link-color-visited         : #1f6f63;
+    --global-masthead-link-color        : #43484d;
+    --global-masthead-link-color-hover  : #1f6f63;
+    --global-text-color                 : #26292c;
+    --global-text-color-light           : #5f6569;
+    --global-thead-color                : #f2efe8;
+}

@@ -1,0 +1,16 @@
+---
+layout: single
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% for category in site.publication_category %}
+  {% assign items = site.publications | where: "category", category[0] | reverse %}
+  {% if items.size > 0 %}
+    <h2>{{ category[1].title }}</h2>
+    {% for post in items %}
+      {% include publication-item.html %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}

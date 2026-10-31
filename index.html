@@ -1,7 +1,47 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <h1> Hello World </h1>
-  <p> I'm hosted with GitHub Pages. </p>
-</body>
-</html>
+---
+layout: single
+author_profile: true
+permalink: /
+redirect_from:
+  - /about/
+  - /about.html
+---
+
+{% include base_path %}
+
+<h1 class="home__lead">I study how language models behave inside real decision systems: where they add value, where they fall short, and how to measure the difference.</h1>
+
+<p>I completed my M.S. in Computer Science at the University of Southern California in May 2026 and work as a Research Assistant in USC's SIAS Lab. Before that, I earned my B.S. in Computer Science at the University of California, Davis.</p>
+
+<h2>Research interests</h2>
+
+<ul>
+  <li><strong>LLM agent evaluation:</strong> separating what a model contributes from what the surrounding system contributes.</li>
+  <li><strong>Reliable AI systems:</strong> tool-first workflows, evidence citation, and confirmation-gated actions.</li>
+  <li><strong>Human-in-the-loop machine learning:</strong> directing human review to the outputs most likely to be wrong.</li>
+</ul>
+
+<h2>Updates</h2>
+
+<ul class="updates">
+  {% for item in site.data.updates %}
+  <li>
+    <span class="updates__date">{{ item.date }}</span>
+    <span class="updates__text">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Publications</h2>
+
+{% for post in site.publications reversed %}
+  {% include publication-item.html %}
+{% endfor %}
+
+<h2>Selected projects</h2>
+
+{% for project in site.data.projects limit: 3 %}
+  {% include project-item.html %}
+{% endfor %}
+
+<p class="section__more"><a href="{{ base_path }}/projects/">All projects</a></p>

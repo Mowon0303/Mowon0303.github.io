@@ -1,0 +1,521 @@
+/* ==========================================================================
+   PAPER LAYOUT
+   Reading-focused overrides for the Academic Pages layout
+   ========================================================================== */
+
+$paper-width                : 58rem;
+$paper-gutter               : 1.25rem;
+$paper-sidebar-width        : 13rem;
+$paper-column-gap           : 4rem;
+$paper-reading-width        : 38rem;
+
+/*
+   Base
+   ========================================================================== */
+
+html {
+  font-size: 17px;
+
+  @include breakpoint($medium) {
+    font-size: 18px;
+  }
+}
+
+body {
+  padding-bottom: 0;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::-moz-selection {
+  color: var(--global-bg-color);
+  background: var(--global-link-color);
+}
+
+::selection {
+  color: var(--global-bg-color);
+  background: var(--global-link-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--global-link-color);
+  outline-offset: 2px;
+}
+
+/* Show the page immediately instead of fading it in */
+.masthead,
+#main,
+.page__footer {
+  -webkit-animation: none;
+          animation: none;
+}
+
+/*
+   Masthead
+   ========================================================================== */
+
+.masthead {
+  background: var(--global-bg-color);
+
+  &__inner-wrap {
+    max-width: $paper-width;
+    padding: 0.55rem $paper-gutter;
+
+    @include breakpoint($x-large) {
+      max-width: $paper-width;
+    }
+  }
+}
+
+.masthead__menu-item--lg {
+  padding-right: 0.5rem;
+  font-weight: 600;
+
+  @include breakpoint($medium) {
+    padding-right: 1rem;
+  }
+
+  a {
+    margin-left: 0;
+    color: var(--global-text-color);
+    font-family: $header-font-family;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+}
+
+.greedy-nav {
+  /* Keeps the links clear of the theme toggle pinned to the right edge */
+  padding-right: 2.25rem;
+
+  a {
+    margin: 0 0.4rem;
+    font-size: 0.85rem;
+
+    @include breakpoint($medium) {
+      margin: 0 1rem;
+    }
+  }
+
+  button {
+    right: 2.25rem;
+  }
+}
+
+.greedy-nav .visible-links a::before {
+  display: none;
+}
+
+.masthead__menu-item.selected a,
+.masthead__menu-item.selected a:hover {
+  font-weight: 600;
+  border-bottom: 0;
+  color: var(--global-link-color);
+}
+
+.masthead__menu-item--lg.selected a,
+.masthead__menu-item--lg.selected a:hover {
+  color: var(--global-text-color);
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+  a {
+    margin: 0;
+    padding: 0.5rem 0.25rem;
+    cursor: pointer;
+  }
+}
+
+/*
+   Page grid
+   ========================================================================== */
+
+#main {
+  max-width: $paper-width;
+  margin-top: 2.25rem;
+  padding-left: $paper-gutter;
+  padding-right: $paper-gutter;
+
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: $paper-sidebar-width minmax(0, 1fr);
+    column-gap: $paper-column-gap;
+    align-items: start;
+    margin-top: 3.5rem;
+
+    /* The template clearfix would otherwise become an empty grid item */
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    max-width: $paper-width;
+  }
+}
+
+#main > .page {
+  float: none;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  max-width: $paper-reading-width;
+}
+
+/*
+   Sidebar
+   ========================================================================== */
+
+#main > .sidebar {
+  float: none;
+  width: auto;
+  margin: 0 0 2rem;
+  padding: 0 0 1.5rem;
+  border-bottom: 1px solid var(--global-border-color);
+
+  @media (orientation: portrait) {
+    margin-top: 0;
+  }
+
+  @include breakpoint($large) {
+    position: sticky;
+    top: calc(#{$masthead-height} + 2rem);
+    bottom: auto;
+    height: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border-bottom: 0;
+  }
+
+  [itemtype="http://schema.org/Person"] {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: center;
+
+    @include breakpoint($large) {
+      display: block;
+    }
+  }
+}
+
+.author__avatar {
+  display: block;
+  width: auto;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 3.5rem;
+
+    @include breakpoint($large) {
+      max-width: 6.5rem;
+      padding: 0;
+      border: 0;
+    }
+  }
+}
+
+.author__content {
+  display: block;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.sidebar .author__name {
+  font-family: $header-font-family;
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  @include breakpoint($large) {
+    margin-top: 1rem;
+    margin-bottom: 0.35rem;
+  }
+}
+
+.sidebar .author__bio {
+  color: var(--global-text-color-light);
+  font-size: 0.82rem;
+
+  @include breakpoint($large) {
+    margin-top: 0;
+    margin-bottom: 1.1rem;
+  }
+}
+
+.author__urls-wrapper {
+  display: block;
+  grid-column: 1 / -1;
+  margin-top: 0.9rem;
+  cursor: default;
+
+  button {
+    display: none;
+  }
+
+  @include breakpoint($large) {
+    margin-top: 0;
+  }
+}
+
+.author__urls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.15rem;
+  position: static;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: auto;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  @include breakpoint($large) {
+    display: block;
+  }
+
+  li {
+    color: var(--global-text-color-light);
+    white-space: normal;
+  }
+
+  a {
+    margin-bottom: 0;
+    color: var(--global-text-color-light);
+
+    &:hover {
+      color: var(--global-link-color);
+      text-decoration: none;
+    }
+  }
+}
+
+.sidebar .author__urls li {
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+/* A long affiliation wraps beside its icon rather than under it */
+.sidebar .author__desktop {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: baseline;
+
+    i {
+      flex: none;
+    }
+  }
+}
+
+.sidebar .social-icons i {
+  color: inherit;
+}
+
+/*
+   Page content
+   ========================================================================== */
+
+.page__title {
+  margin-bottom: 1.5rem;
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.home__lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+
+  @include breakpoint($medium) {
+    font-size: 1.7rem;
+    line-height: 1.38;
+  }
+}
+
+.page__content {
+  h2 {
+    margin: 2.75rem 0 0.9rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 1.22rem;
+    font-weight: 600;
+  }
+
+  > h2:first-child {
+    margin-top: 0;
+  }
+
+  h3 {
+    margin: 1.5rem 0 0.15rem;
+    font-family: $global-font-family;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  h3 + p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+  }
+
+  ul {
+    margin-top: 0;
+    padding-left: 1.15rem;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+  }
+
+  li::marker {
+    color: var(--global-text-color-light);
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--global-dark-border-color);
+    text-underline-offset: 0.2em;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+/*
+   Updates
+   ========================================================================== */
+
+.page__content .updates {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    column-gap: 1rem;
+    margin-bottom: 0.45rem;
+  }
+}
+
+.updates__date {
+  padding-top: 0.12rem;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/*
+   Publications and projects
+   ========================================================================== */
+
+.pub,
+.project {
+  margin-bottom: 1.5rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.page__content .pub__title,
+.page__content .project__title {
+  margin: 0 0 0.15rem;
+}
+
+.pub__authors,
+.pub__venue,
+.project__area {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.pub__authors strong {
+  color: var(--global-text-color);
+  font-weight: 600;
+}
+
+.pub__status,
+.pub__note {
+  white-space: nowrap;
+
+  &::before {
+    content: "\00b7\00a0";
+  }
+}
+
+.page__content .project__summary {
+  margin-top: 0.3rem;
+}
+
+.page__content .project__links {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+
+  a + a {
+    margin-left: 1rem;
+  }
+}
+
+.section__more {
+  font-size: 0.9rem;
+}
+
+/*
+   Footer
+   ========================================================================== */
+
+.page__footer {
+  position: static;
+  float: none;
+  margin-top: 4.5rem;
+  background: transparent;
+  border-top: 1px solid var(--global-border-color);
+  color: var(--global-text-color-light);
+
+  footer {
+    max-width: $paper-width;
+    margin-top: 0;
+    padding: 1.25rem $paper-gutter 2rem;
+
+    @include breakpoint($x-large) {
+      max-width: $paper-width;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+}
+
+.page__footer-copyright {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}

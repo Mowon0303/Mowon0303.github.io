@@ -1,0 +1,27 @@
+# Listed in this order. The first three also appear on the home page.
+
+- title: "Auditing LLM value in robotaxi operations"
+  area: "Research, USC SIAS Lab"
+  summary: "A market simulator built on New York City trip records, used to separate what language models contribute to fleet and pricing decisions from what the surrounding system contributes."
+
+- title: "LifeAgent"
+  area: "Reliable agents"
+  summary: "An email-first personal operations agent that extracts deadlines, amounts, and required actions, answers with citations and explicit uncertainty, and requires confirmation before any external write."
+  links:
+    - label: "Code"
+      url: "https://github.com/Mowon0303/LifeAgent"
+
+- title: "MaskReview"
+  area: "Human-in-the-loop computer vision"
+  summary: "A review workbench for SAM2 video segmentation that sends people only to the frames most likely to be wrong and measures the human effort each correction costs."
+  links:
+    - label: "Code"
+      url: "https://github.com/Mowon0303/MaskReview"
+
+- title: "DNA foundation-model benchmark"
+  area: "Genomics and model evaluation"
+  summary: "Extended a genomic foundation-model benchmark with HyenaDNA, comparing linear and MLP probes, progressive unfreezing, and LoRA fine-tuning on promoter and enhancer datasets."
+
+- title: "LLM-based time-series forecasting"
+  area: "Applied NLP, team of 6"
+  summary: "Combined Time-LLM and CALF methods on ETT-family forecasting benchmarks and analyzed how model adaptation choices affect forecasting performance."

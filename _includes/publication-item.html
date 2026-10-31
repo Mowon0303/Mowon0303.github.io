@@ -1,0 +1,12 @@
+<article class="pub">
+  <h3 class="pub__title">
+    {% if post.paperurl %}<a href="{{ post.paperurl }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}
+  </h3>
+  {% assign author_name = site.author.name %}
+  {% capture author_markup %}<strong>{{ author_name }}</strong>{% endcapture %}
+  <p class="pub__authors">{{ post.authors | replace: author_name, author_markup }}</p>
+  <p class="pub__venue">
+    <em>{{ post.venue }}</em>{% if post.status %} <span class="pub__status">{{ post.status }}</span>{% else %}, {{ post.date | date: "%Y" }}{% endif %}
+    {% if post.note %}<span class="pub__note">{{ post.note }}</span>{% endif %}
+  </p>
+</article>
